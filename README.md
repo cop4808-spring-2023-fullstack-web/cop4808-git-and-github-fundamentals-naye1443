@@ -107,3 +107,10 @@ You can check out the GitHub Explore website [at github.com/explore](https://git
 * [GitHub's Learning Lab](https://lab.github.com/)
 * [Education community forum](https://education.github.community/)
 * [GitHub community forum](https://github.community/)
+
+## Begining of Eyans comments
+
+Picture of VScode with terminal
+
+![alt text](VscodeScreenshot.png)
+
