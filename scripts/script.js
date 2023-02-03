@@ -29,6 +29,9 @@ function clickButton() {
                 updateDisplay();
             } else if(buttons[i].classList.contains('operator')) {
                 inputOperator(buttons[i].value);
+            } else if(buttons[i].classList.contains('unaryOperator')){
+                inputOperand(buttons[i].value);
+                updateDisplay();
             } else if(buttons[i].classList.contains('equals')) {
                 inputEquals();
                 updateDisplay();
@@ -113,7 +116,7 @@ function inputEquals() {
             secondOperator = null;
             result = null;
         }
-    } else {
+    } else {    // If operand is only pressed once and then operator, do operation (operand operator operand = result)
         //handles first operation
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
@@ -176,8 +179,18 @@ function operate(x, y, op) {
         } else {
         return x / y;
         }
+    } else if( op === 'mod') {
+        return x % y;
+    } else if(op === 'log') {
+        return Math.log10(x);   // TODO: Continue implmenting logbase10 - Need to program logic for just one operand
     }
 }
+/* Create functions:
+    - log > automatically do (logbase10(value))
+    - e^x
+    -x^y
+*/
+
 
 function roundAccurately(num, places) {
     return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
