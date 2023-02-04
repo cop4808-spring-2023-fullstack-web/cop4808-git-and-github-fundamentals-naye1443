@@ -56,7 +56,6 @@ clickButton();
 function inputOperand(operand) {
     if(firstOperator === null) {
         if(operand === 'e'){
-            console.log(Math.E);
             displayValue = roundAccurately(Math.E, 15).toString();
         } else if(displayValue === '0' || displayValue === 0) {
             //1st click - handles first operand input
@@ -70,7 +69,6 @@ function inputOperand(operand) {
     } else {
         //3rd/5th click - inputs to secondOperand
         if(operand === 'e'){
-            console.log(Math.E);
             displayValue = roundAccurately(Math.E, 15).toString();
         } else if(displayValue === firstOperand) {
             displayValue = operand;
@@ -88,7 +86,6 @@ function inputOperator(operator) {
         displayValue = roundAccurately(result,15).toString();
         firstOperand = displayValue;
         result = null;
-        console.log("in here");
     }
     else if(firstOperator != null && secondOperator === null) {
         //4th click - handles input of second operator
@@ -197,18 +194,11 @@ function operate(x, y, op) {
     } else if( op === 'mod') {
         return x % y;
     } else if(op === 'log') {
-        return Math.log10(x);   // TODO: Continue implmenting logbase10 - Need to program logic for just one operand
+        return Math.log10(x);
     } else if (op === 'x^y') {
-        console.log(x**y);
         return x**y;
     }
 }
-/* Create functions:
-    - log > automatically do (logbase10(value))
-    - e^x
-    -x^y
-*/
-
 
 function roundAccurately(num, places) {
     return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
