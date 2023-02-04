@@ -30,7 +30,7 @@ function clickButton() {
             } else if(buttons[i].classList.contains('operator')) {
                 inputOperator(buttons[i].value);
             } else if(buttons[i].classList.contains('unaryOperator')){
-                inputOperand(buttons[i].value);
+                inputOperator(buttons[i].value);
                 updateDisplay();
             } else if(buttons[i].classList.contains('equals')) {
                 inputEquals();
@@ -55,7 +55,10 @@ clickButton();
 
 function inputOperand(operand) {
     if(firstOperator === null) {
-        if(displayValue === '0' || displayValue === 0) {
+        if(operand === 'e'){
+            console.log(Math.E);
+            displayValue = roundAccurately(Math.E, 15).toString();
+        } else if(displayValue === '0' || displayValue === 0) {
             //1st click - handles first operand input
             displayValue = operand;
         } else if(displayValue === firstOperand) {
@@ -66,7 +69,10 @@ function inputOperand(operand) {
         }
     } else {
         //3rd/5th click - inputs to secondOperand
-        if(displayValue === firstOperand) {
+        if(operand === 'e'){
+            console.log(Math.E);
+            displayValue = roundAccurately(Math.E, 15).toString();
+        } else if(displayValue === firstOperand) {
             displayValue = operand;
         } else {
             displayValue += operand;
@@ -75,7 +81,16 @@ function inputOperand(operand) {
 }
 
 function inputOperator(operator) {
-    if(firstOperator != null && secondOperator === null) {
+    if(operator == 'log'){
+        firstOperator = operator;
+        firstOperand = displayValue;
+        result = operate(Number(firstOperand), Number(firstOperand), firstOperator);
+        displayValue = roundAccurately(result,15).toString();
+        firstOperand = displayValue;
+        result = null;
+        console.log("in here");
+    }
+    else if(firstOperator != null && secondOperator === null) {
         //4th click - handles input of second operator
         secondOperator = operator;
         secondOperand = displayValue;
@@ -183,6 +198,9 @@ function operate(x, y, op) {
         return x % y;
     } else if(op === 'log') {
         return Math.log10(x);   // TODO: Continue implmenting logbase10 - Need to program logic for just one operand
+    } else if (op === 'x^y') {
+        console.log(x**y);
+        return x**y;
     }
 }
 /* Create functions:
