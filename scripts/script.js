@@ -85,6 +85,7 @@ function inputOperator(operator) {
         result = operate(Number(firstOperand), Number(firstOperand), firstOperator);
         displayValue = roundAccurately(result,15).toString();
         firstOperand = displayValue;
+        firstOperator = null;
         result = null;
     }
     else if(firstOperator != null && secondOperator === null) {
