@@ -113,3 +113,7 @@ button {
 button.operator:nth-child(-n + 5), button.unaryOperator:nth-child(-n + 5),button.operand:nth-child(-n + 5) { /* Weird selecting because of different classes*/
     background-color: rgb(126, 2, 2);
 }
+
+button.operator:nth-child(-n + 5):active, button.unaryOperator:nth-child(-n + 5):active, button.operand:nth-child(-n + 5):active { /* Weird selecting because of different classes*/
+    background-color: rgb(65, 0, 0);
+}
