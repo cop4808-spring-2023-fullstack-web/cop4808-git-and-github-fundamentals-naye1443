@@ -114,3 +114,7 @@ Picture of VScode with terminal
 
 ![alt text](VscodeScreenshot.png)
 
+Add new functions to calculator
+
+![Alt Text](calcNewFunc.gif)
+
